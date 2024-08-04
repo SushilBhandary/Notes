@@ -5,7 +5,7 @@
 outer scope  -> every function has access to it's vars/lets as well as as any variable deaclred outside 
 JS says that outer scope is `lexically scoped` -> your fn definiton
 
-```
+```js
 var varName = 10;
 /**fn def*/
 function b() {
@@ -22,7 +22,7 @@ function fn() {
 fn();
 ```
 Output:
-```
+```js
 in b 10
 in fn:  20
 ```
@@ -34,7 +34,7 @@ In JavaScript, a closure is created when a function has access to variables from
 
 Example 1 :
 
-```
+```js
 function outerFunction() {
     console.log("first line of outerfunction: ", count);
     var count = 0;
@@ -51,7 +51,7 @@ console.log(innerFunc())  // 2
 const innerFunc2 = outerFunction();
 ```
 output:
-```
+```js
 first line of outerfunction:  undefined
 second line of outerfunction:  0
 1
@@ -61,7 +61,7 @@ second line of outerfunction:  0
 ```
 ---
 Example 2 :
-```
+```js
 function createCounter(init, delta) {
     function count() {
         init = init + delta;
@@ -79,7 +79,7 @@ console.log(c1())
 console.log(c2())
 ```
 output:
-```
+```js
 15
 7
 20
@@ -89,7 +89,7 @@ output:
 ## Nested closer
 Nested closure : you will get access to outer variable even if the outer fn is not your direct parent
 
-```
+```js
 let iamINGEC = 200;
 function getFirstName(firstName) {
     console.log("I have got your first Name");
@@ -112,7 +112,7 @@ console.log("Final Value: ", iamINGEC);
 ```
 outpur:
 
-```
+```js
 I have got your first Name
 I have got Your last Name
 Hi I am Rajneesh Kumar
@@ -133,7 +133,7 @@ Final Value:  203
 ### Currying
 Builder pattern: https://www.dofactory.com/javascript/design-patterns/builder
 
-```
+```js
 function getFirstName(firstName) {
     console.log("I have got your first Name");
     return function getLastName(lastName) {
@@ -148,7 +148,7 @@ getFirstName("Gibran")("Castillo")(100);
 ```
 Output:
 
-```
+```js
 Hi I am Rajneesh kumar
 I have got your first Name
 I have got Your last Name
@@ -158,7 +158,7 @@ here is your deduction:  100
 
 ### Asynchrounous
 
-```
+```js
 let a = 100;
 console.log("Before");
 
@@ -173,7 +173,7 @@ for (let i = 0; i < 1000; i++) {
 console.log("After");   // Async + closures are responsible for such kind of behaviour.
 ```
 Output:
-```
+```js
 Before
 After
 I will explode 1100
@@ -184,7 +184,7 @@ I will explode 1100
 1. Question 
 what is the output of this code
 
-```
+```js
 function outer() {
     let arrFn = [];
     for (var i = 0;i < 3; i++) {
@@ -204,7 +204,7 @@ arrFn[2]();
 
 output:
 
-```
+```js
 4
 5
 6
@@ -221,7 +221,7 @@ then when arrFn[2] is called then -> i=6 , print
 2. Question 
 what is the output of this code
 Diff in this code is `var` is changed to `let` 
-```
+```js
 function outer() {
     /**
      * arrfns block scope refer to -> functions
@@ -241,7 +241,7 @@ arrFn[1]();
 arrFn[2]();
 ```
 Output :
-```
+```js
 1
 2
 3
@@ -251,7 +251,7 @@ Output :
 what is the output of this code
 Diff in this code from question 2 is let i is defined out side the for loop block
 
-```
+```js
 function outer() {
     /**
      * arrfns block scope refer to -> functions
@@ -272,7 +272,7 @@ arrFn[1]();
 arrFn[2]();
 ```
 Output:
-```
+```js
 4
 5
 6
@@ -283,7 +283,7 @@ fn is getting diffrent values of i because here block scope is different for eve
 
 ## infinite curry
 Example 1
-```
+```js
 function counter(args){
     let count = 0;
     count++;
@@ -307,13 +307,13 @@ console.log(counter()()()()(0)); // print -> 5
 
 ```
 Output:
-```
+```js
 1
 2
 5
 ```
 Example 2
-```
+```js
 function sum(val) {
     if (val === undefined) {
         return 0;
@@ -337,7 +337,7 @@ console.log(sum(3)(7)(8)()); //18
 ```
 Output:
 
-```
+```js
 0
 1
 7
@@ -346,7 +346,7 @@ Output:
 
 ## Private variables
 
-```
+```js
 function createEvenStack() {
     let items = [];
     return {
@@ -380,7 +380,7 @@ console.log("value in the stack ", stack.display())
 
 Output:
 
-```
+```js
 Is pushed
 Is pushed
 Is pushed

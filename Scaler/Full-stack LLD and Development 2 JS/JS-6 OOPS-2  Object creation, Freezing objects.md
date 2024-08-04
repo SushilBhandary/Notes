@@ -8,12 +8,12 @@
 Any properties and methods having Object as there prototype (parent)
 
 - Arrays
-    ```
+    ```js
     console.log([1,2,3,4]);
     ```
     array -> Array(Object/class) -> Object
 - Object
-    ```
+    ```js
     let obj = {
         name: "Steve",
         address: {
@@ -24,7 +24,7 @@ Any properties and methods having Object as there prototype (parent)
     ```
     object -> Object 
 - Function 
-    ```
+    ```js
     function Hi() {
         console.log(`${this.name} say's Hi `);
         return this;
@@ -32,17 +32,17 @@ Any properties and methods having Object as there prototype (parent)
     ```
     function -> Function -> Object
 - String 
-    ```
+    ```js
     console.log(new String("Hi My name is Rajneesh"));
     ```
     str -> String -> Object
 - Boolean
-    ```
+    ```js
     console.log(new Boolean());
     ```
     boolean -> Boolean -> Object
 - Number
-    ```
+    ```js
     console.log(new Number());
     ```
     num -> Number  -> Object
@@ -56,7 +56,7 @@ whenever you want to access any method or property then that  primitive is typec
 
 ### Create an object without any parent
 
-```
+```js
 let obj = {
     name: "Steve",
     address: {
@@ -78,14 +78,14 @@ console.log("obj3: ", obj3);
 ```
 Output:
 
-```
+```js
 obj3:  {}
 obj3:  { name: 'Rajneesh', lastName: 'Kumar' }
 ```
 
 ### Creating an object from another object
 
-```
+```js
 let obj = {
     name: "Steve",
     address: {
@@ -106,7 +106,7 @@ This is how we create new object by the another object
 `Question`: Can you write a loop to print all members of my object but you need to ignore member of all parent and gParent class. And Can you optimize that operations.
 
 
-```
+```js
 for(let key in obj3){
     let isMyKey = obj3.hasOwnProperty(key);
     if(isMyKey){
@@ -117,7 +117,7 @@ for(let key in obj3){
 }
 ```
 Output:
-```
+```js
 Actual key's are:  friends
 Actual key's are:  fullName
 Actual key's are:  age
@@ -129,7 +129,7 @@ so, In this why we have else part is `First all the obj3 key will come then afte
 
 One more Example 
 
-```
+```js
 for(let key in obj3){
     if(obj3.hasOwnProperty(key)){
         console.log("My Keys are ", key);
@@ -144,7 +144,7 @@ for(let key in obj3){
 
 ## function constructor before es6
 
-```
+```js
 function Person(name, age) {
     // console.log(this);
     this.name = name;
@@ -162,7 +162,7 @@ const rajneesh = new Person("Rajneesh", 27);  // Treat this as a object.
 console.log(rajneesh.sayHi());
 ```
 Output :
-```
+```js
 I am Rajneesh and 26 years old
 <ref *1> Object [global] {
   global: [Circular *1],
@@ -194,7 +194,7 @@ Person { name: 'Rajneesh', age: 27, sayHi: [Function (anonymous)] }
 
 ## Class  after es6
 
-```
+```js
 class Person {
     constructor(name, age) {
         this.name = name;
@@ -228,7 +228,7 @@ gibran.sayBye();
 ```
 Output:
 
-```
+```js
 Person { name: 'Rajneesh', age: 26 }
 I am Rajneesh and 26 years old
 I am Gibran and 26 years old, I want to say Hi!

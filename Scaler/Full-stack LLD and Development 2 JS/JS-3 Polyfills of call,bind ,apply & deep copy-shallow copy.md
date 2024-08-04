@@ -2,7 +2,7 @@
 
 ## Default 
 
-```
+```js
 function fn(param1, param2, param3="default") {
     console.log("Hi params are ", param1, param2, param3);
 }
@@ -14,7 +14,7 @@ fn("Hi", "Hello", "Hola");
 
 spread operator : copies value,ref from on array to another for only first level
 
-```
+```js
 let arr = [1, 2, [3, 4], 4, 5];
 et arr2 = [...arr];
 ```
@@ -24,7 +24,7 @@ et arr2 = [...arr];
 rest -> It is used as paremeter of fn
 use you to collect remianing parameters numbers of params 
 
-```
+```js
 function fn(param1, ...param2) {
     console.log(" params are ", param1);
     console.log("Rest paramateres",param2);
@@ -37,7 +37,7 @@ fn("Hi", "Hello", "Naga", "Meena", "Gaurav", "shravya", "Adarsh");
 
 Let assume that this code is present 
 
-```
+```js
 let cap = {
     name: "Steve",
     team: "Cap",
@@ -56,7 +56,7 @@ let ironMan = {
 
 polyfill of call method
 
-```
+```js
 Function.prototype.myCall = function (requiredObject, ...args) {
     // get your function.
     const functionToBeInvoked = this;
@@ -78,7 +78,7 @@ cap.petersTeam.myCall(ironMan,"thor", "loki");
 
 polyfill of apply method
 
-```
+```js
 Function.prototype.myApply = function (requiredObject, arrayAsArgu) {
     // get your function.
     const functionToBeInvoked = this;
@@ -101,7 +101,7 @@ cap.petersTeam.apply(ironMan, ["thor", "loki"]);
 
 polyfill of bind method
 
-```
+```js
 Function.prototype.myBind = function (requiredObject) {
     // get your function.
     const functionToBeInvoked = this;
@@ -123,7 +123,7 @@ call by value -> call by sharing
 primitive -> value
 no primitive -> val of the reference
 
-```
+```js
 function modifier(a, b) {
     console.log("13", a, b)
     a[0] = 10;

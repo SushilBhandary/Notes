@@ -3,7 +3,7 @@
 In GEC this = window.
 
 Input :
-```
+```js
 var firstVar = "steve";
 let secondVal = "loki";
 console.log("first: ", window.firstVar);
@@ -12,7 +12,7 @@ console.log("Hello from: ", this);   // In GEC this = window.
 
 ```
 output :
-```
+```js
 first:  steve
 second:  loki
 Hello from:  Window {window: Window, self: Window, document: document, name: '', location: Location, …}
@@ -20,7 +20,7 @@ Hello from:  Window {window: Window, self: Window, document: document, name: ''
 
 ---
 Input :
-```
+```js
 let cap = {
     // property
     firstName: "Steve",
@@ -37,7 +37,7 @@ var firstName = "loki";
 sayHiAdd();
 ```
 output :
-```
+```js
 Hi from  Steve
 Hi from  loki
 ```
@@ -48,7 +48,7 @@ Hi from  loki
 ---
 
 Input :
-```
+```js
 let cap2 = {
     firstName: "Steve",
     sayHi: function (param) {
@@ -65,7 +65,7 @@ let cap2 = {
 cap2.sayHi(10);
 ```
 output :
-```
+```js
 47 Steve
 49 loki
 ```
@@ -74,7 +74,7 @@ output :
 ---
 
 Input :
-```
+```js
 llet cap3 = {
     firstName: "Steve",
     sayHi: function () {
@@ -89,7 +89,7 @@ llet cap3 = {
 cap3.sayHi();
 ```
 output :
-```
+```js
 53 Steve
 55 Steve
 ```
@@ -103,7 +103,7 @@ output :
 ### Example 
 
 Input
-```
+```js
 let cap5 = {
     firstName: "Steve",
     sayHi: function () {
@@ -131,7 +131,7 @@ let cap5 = {
 cap5.sayHi();
 ```
 Output
-```
+```js
 109 Steve
 94 Steve
 114 loki
@@ -140,7 +140,7 @@ Output
 ---
 
 Input
-```
+```js
 let cap4 = {
     firstName: "Steve",
     sayHi: function () {
@@ -159,7 +159,7 @@ let cap4 = {
 cap4.sayHi();
 ```
 Output
-```
+```js
 91 Steve
 95 Steve
 ```
@@ -167,7 +167,7 @@ Output
 
 
 Input
-```
+```js
 "use strict";
 let cap = {
     // property
@@ -184,7 +184,7 @@ var firstName = "loki";
 sayHiAdd();  // you will hit by error
 ```
 Output
-```
+```js
 Hi from  Steve
 TypeError: Cannot read properties of undefined (reading 'firstName')
 ```
@@ -192,7 +192,7 @@ TypeError: Cannot read properties of undefined (reading 'firstName')
 ---
 
 Input :
-```
+```js
 "use strict";
 let cap2 = {
     firstName: "Steve",
@@ -210,7 +210,7 @@ let cap2 = {
 cap2.sayHi();
 ```
 Output :
-```
+```js
 47 Steve
 TypeError: Cannot read properties of undefined (reading 'firstName')
 ```
@@ -218,7 +218,7 @@ TypeError: Cannot read properties of undefined (reading 'firstName')
 ---
 
 Input :
-```
+```js
 "use strict";
 let cap = {
     firstName: "Steve",
@@ -234,14 +234,14 @@ let cap = {
 cap.sayHi();
 ```
 Output :
-```
+```js
 53 Steve
 55 Steve
 ```
 
 ---
 Input :
-```
+```js
 "use strict";
 let cap2 = {
     firstName: "Steve",
@@ -267,7 +267,7 @@ let cap2 = {
 cap2.sayHi();
 ```
 Output :
-```
+```js
 91 Steve
 91 Steve
 91 Steve
@@ -279,7 +279,7 @@ TypeError: Cannot read properties of undefined (reading 'firstName')
 # Chaining
 
 Input :
-```
+```js
 let ladder2 = {
     step: 0,
     up() {
@@ -301,7 +301,7 @@ let ladder2 = {
 ladder2.up().up().up().up().up().up().down().showStep();
 ```
 Output:
-```
+```js
 5
 ```
 
@@ -309,7 +309,7 @@ Output:
 
 
 Run this on broser 
-```
+```js
 let arr = [1, 2, 3, 4];
 console.log(arr);
 ```
@@ -324,7 +324,7 @@ advantage  of  inheritance ->
 
 ### Example of creating a prototype (inheritance)
 
-```
+```js
 let arr1 = [1, 2, 3, 4];
 let arr2 = [1, 2, 3, 4, 5, 6];
 Array.prototype.sum = function () {
@@ -340,14 +340,14 @@ arr1.sum();
 arr2.sum();
 ```
 output
-```
+```js
 10
 21
 ```
 # Bind , Call , Apply
 
 let take this as a starter code for all the bellow 
-```
+```js
 let cap = {
     name: "Steve",
     team: "Cap",
@@ -366,11 +366,11 @@ let ironMan = {
 ```
 
 if we run the code 
-```
+```js
 cap.petersTeam("black panther", "Winter soldier", "Thor");
 ```
 output:
-```
+```js
 Hey Steve I am your neighborhood's  spiderman and i belong to Cap's team
 I am working with black panther & Winter soldier with Thor
 ```
@@ -379,11 +379,11 @@ I am working with black panther & Winter soldier with Thor
 
 borrow a fn from another object 
 
-```
+```js
 cap.petersTeam.call(ironMan, "Natsha", "WarMachine", "Groot", "Thor");
 ```
 output
-```
+```js
 Hey Tony I am your neighborhood's  spiderman and i belong to Iron Man's team
 I am working with Natsha & WarMachine with Groot,Thor
 ```
@@ -392,11 +392,11 @@ I am working with Natsha & WarMachine with Groot,Thor
 
 borrow for n number of paramters
 
-```
+```js
 cap.petersTeam.apply(ironMan, ["Natsha", "WarMachine", "doctor strange", "loki", "thor"]);
 ```
 output:
-```
+```js
 Hey Tony I am your neighborhood's  spiderman and i belong to Iron Man's team
 I am working with Natsha & WarMachine with doctor strange,loki,thor
 ```
@@ -404,13 +404,13 @@ I am working with Natsha & WarMachine with doctor strange,loki,thor
 
 copies function that you can call later with the same this
 
-```
+```js
 let ironManStolenMem = cap.petersTeam.bind(ironMan);
 ironManStolenMem("Natsha", "WarMachine", "doctor strange");
 ironManStolenMem("loki", "thor")
 ```
 output: 
-```
+```js
 Hey Tony I am your neighborhood's  spiderman and i belong to Iron Man's team
 I am working with Natsha & WarMachine with doctor strange
 Hey Tony I am your neighborhood's  spiderman and i belong to Iron Man's team
@@ -421,7 +421,7 @@ I am working with loki & thor with
 
 The problem is 
 
-```
+```js
 var fruits = "apple";
 console.log(fruits); // apple
 {
@@ -439,7 +439,7 @@ console.log(fruits); // orange
 
 Legal way to slove this is 
 
-```
+```js
 let fruits = "apple";
 console.log("21",fruits); // apple
 { 
@@ -454,7 +454,7 @@ console.log("21",fruits); // apple
 }
 console.log(fruits);
 ```
-```
+```js
 var fruits = "apple";
 console.log("21",fruits); // apple
 { 
@@ -472,7 +472,7 @@ console.log(fruits);
 
 illegal shadowing way is 
 
-```
+```js
 let fruits = "apple";
 console.log("21",fruits); // apple
 { 

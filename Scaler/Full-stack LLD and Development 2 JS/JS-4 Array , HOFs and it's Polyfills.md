@@ -13,7 +13,7 @@ shallow copy: shallow copy of an object/Array is a copy whose properties share t
 
 For Array using Spread
 
-```
+```js
 let arr = [1, 2, 3, 4, [10, 12], 5, 6];
 let spreadArray = [...arr];
 spreadArray[2] = 100;
@@ -22,7 +22,7 @@ console.log("outputs ", spreadArray, arr);
 
 ```
 For Object using Spread
-```
+```js
 let person = {
     firstName: 'John',
     lastName: 'Doe',
@@ -36,7 +36,7 @@ let person = {
 let copiedObject = { ...person };
 ```
 For Object using Object.assign
-```
+```js
 let person = {
     firstName: 'John',
     lastName: 'Doe',
@@ -52,7 +52,7 @@ let copiedObject = Object.assign({}, person);
 
 Deep Copy -> JSON.stringify and JSON.parse
 
-```
+```js
 let person = {
     firstName: 'John',
     lastName: 'Doe',
@@ -70,7 +70,7 @@ console.log("copiedObject", deepClonedObj);
 
 # Function to create Deap copy for Array and Object
 
-```
+```js
 function superCloneEffective(input) {
     if (!Array.isArray(input) && typeof input !== "object") {
         return input; // Function or wither primitive data type.
@@ -91,7 +91,7 @@ function superCloneEffective(input) {
 
 # Flattening Array
 
-```
+```js
 let input = [1, 2, 3, [4, 5], [6, 7, 8, [9, 10, 110]]];
 // Array contains only Integers. 
 function flatten(srcArr) {
@@ -123,14 +123,14 @@ slice cut a sub-array from orgenal array and returns
 slice(start)
 slice(start, end-1)
 
-```
+```js
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 console.log(animals.slice(2));
 console.log(animals.slice(2, 4));
 console.log(animals.slice(1, 5));
 ```
 output:
-```
+```js
 ["camel", "duck", "elephant"]
 ["camel", "duck"]
 ["bison", "camel", "duck", "elephant"]
@@ -148,13 +148,13 @@ splice(start, deleteCount, item1)
 splice(start, deleteCount, item1, item2)
 splice(start, deleteCount, item1, item2, /* …, */ itemN)
 
-```
+```js
 arr=[1,2,3,4,5,6]
 let splicedArr = arr.splice(2, 5);
 console.log("arr: ", arr)
 ```
 output 
-```
+```js
 arr:  [ 1, 2 ]
 ```
 
@@ -162,7 +162,7 @@ arr:  [ 1, 2 ]
 It concat a two array without chainging the original array
 First parent array get copied followed by concat array so Time: O(N + M), , S: O(N + M)
 
-```
+```js
 
 arr=[1,2,3,4,5,6]
 let concatArr = arr.concat([100, 200, 300]);
@@ -170,7 +170,7 @@ console.log("concatArr: ", concatArr);
 console.log("arr",arr)
 ```
 output :
-```
+```js
 concatArr:  [
   1,   2,   3,   4, 5,
   6, 100, 200, 300
@@ -181,38 +181,38 @@ arr [ 1, 2, 3, 4, 5, 6 ]
 
 remove the whitespace in frount and back of the string
 
-```
+```js
 let str = "      Hi i am google     ".trim();
 console.log(str)
 ```
 output:
-```
+```js
 Hi i am google
 ```
 
 ## split
 split the string by the given char value
 
-```
+```js
 let arrStr = str.split(" ");
 console.log("splitted Array: ",arrStr);
 ```
 output:
 
-```
+```js
 splitted Array:  [ 'Hi', 'i', 'am', 'google' ]
 ```
 
 ## join
 
 join the array of string by the given value
-```
+```js
 let joinedStr = arrStr.join("+");
 console.log("joinedStr",joinedStr);
 ```
 output:
 
-```
+```js
 joinedStr Hi+i+am+google
 ```
 
@@ -225,7 +225,7 @@ so, it have key, value pair
 
 Let take this code 
 
-```
+```js
 function fn() {
     let a = 10;
     console.log("Hi I am an fn");
@@ -237,7 +237,7 @@ fn(); // count 1 -> 2
 ```
 now when we run 
 
-```
+```js
 // /** method to a fn */
 fn.showCount = function () {
     console.log("count on fn  is ", this.count);
@@ -245,20 +245,20 @@ fn.showCount = function () {
 fn.showCount();
 ```
 then the output: will be 
-```
+```js
 count on fn  is  2
 ```
 
 now, when we Iterate this fumction then 
 
-```
+```js
 for (let key in fn) {
     console.log("key: ", key, " vaue: ", fn[key]);
 }
 ```
 
 output will be 
-```
+```js
 key:  count  vaue:  2
 key:  showCount  vaue:  [Function (anonymous)]
 ```
@@ -273,7 +273,7 @@ or in Layman fn is an object that can also be called.
 ## pass a variable as a parameter
 
 
-```
+```js
 function fn(param) {
     console.log(" I recived a param", param);
     if (typeof param === "function") {
@@ -293,7 +293,7 @@ fn(smallerfn);
 
 example :
 
-```
+```js
 function HOF(cb) {
     console.log("Inside HOF");
     cb();
@@ -306,7 +306,7 @@ function smallerfn() {
 HOF(smallerfn);
 ```
 output :
-```
+```js
 Inside HOF
 I am smaller
 You both are wasted
@@ -314,7 +314,7 @@ You both are wasted
 ---
 there is a bug in the below code 
 
-```
+```js
 real();
 // this can cause a bug 
 function real() { console.log("I am real. Always run me"); }
@@ -324,12 +324,12 @@ function real() { console.log("You both are wasted"); }
 
 output ;
 
-```
+```js
 You both are wasted
 ```
 this can be fixed by 
 
-```
+```js
 const real = function () { console.log("I am real. Always run me"); }
 const real = function () { console.log("No I am real one "); }
 const real = function () { console.log("You both are wasted"); }
@@ -338,7 +338,7 @@ const real = function () { console.log("You both are wasted"); }
 so, now when ypou run then you will get error 
 showing that this should not be done 
 
-```
+```js
 SyntaxError: Identifier 'real' has already been declared
 ```
 
@@ -360,7 +360,7 @@ HOF -> majorly available on arrays, these fn doesn't change the source array
 
 forEach travesal throw the array and does not return the value
 
-```
+```js
 let arr = [2, 3, 4, 5];
 const printElem = function (ele) {
     console.log(ele * ele);
@@ -375,7 +375,7 @@ arr.forEach((ele) => {
 });
 ```
 output :
-```
+```js
 4
 9
 16
@@ -391,7 +391,7 @@ undefined
 
 Map travesal throw the array and return the value
 
-```
+```js
 let arr = [2, 3, 4, 5];
 function squarer(elem) {
     return elem * elem;
@@ -406,14 +406,14 @@ let cubedArr = arr.map((ele) => ele * ele * ele)
 console.log("cubedArr", cubedArr);
 ```
 output:
-```
+```js
 squaredArr [ 4, 9, 16, 25 ]
 cubedArr [ 8, 27, 64, 125 ]
 
 ```
 ### Polyfill of Map
 
-```
+```js
 Array.prototype.myMap = function (logic) {
     let newArray = [];
 
@@ -430,7 +430,7 @@ Array.prototype.myMap = function (logic) {
 filter traverse through every elem -> elem to call back function if call back function function returns true
 it will add that elem to a new Arr at the end ,it returns the new Arr
 
-```
+```js
 let elems = [1, 2, 3, 11, 4, 5, 34, 12];
 function isOdd(elem) {
     return elem % 2 == 1;
@@ -440,13 +440,13 @@ console.log("oddvaluesArr: ", oddvaluesArr);
 ```
 
 output: 
-```
+```js
 oddvaluesArr:  [ 1, 3, 11, 5 ]
 ```
 
 ### Polyfill of filter
 
-```
+```js
 Array.prototype.myFilter = function (logic) {
     let newArray = [];
 
@@ -463,7 +463,7 @@ Array.prototype.myFilter = function (logic) {
 ## Reduce
 
 
-```
+```js
 let elems = [1, 2, 3, 4, 5];
 function sum(sumSoFar, elem) {
     return sumSoFar + elem;
@@ -472,13 +472,13 @@ console.log("sum: ", elems.reduce(sum));
 ```
 
 output:
-```
+```js
 sum:  15
 ```
 
 ### PLyfill of Reduce 
 
-```
+```js
 Array.prototype.myReduce = function (fun, initialValue) {
     if( this.length == 0) {
         return 

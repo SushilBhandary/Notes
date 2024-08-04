@@ -7,7 +7,7 @@
 
 ## Synchronous code
 
-```
+```js
 console.log("Before");
 function fn(){
     console.log("I'm in function.")
@@ -16,7 +16,7 @@ fn();
 console.log("After");
 ```
 output:
-```
+```js
 Before
 I'm in function.
 After
@@ -24,7 +24,7 @@ After
 
 ## Asynchronous code 
 
-```
+```js
 let timeFuture = Date.now() + 5000;
 while(Date.now() < timeFuture){}
 
@@ -52,7 +52,7 @@ console.log("After");
 ```
 
 Output:
-```
+```js
 Before
 I'm in function.
 After
@@ -73,20 +73,20 @@ After cb2:  1721759725148
 ## Read or write
 
 - synchronous function
-    ```
+    ```js
     console.log("Before");
     const buffer = fs.readFileSync("./f1.txt");
     console.log("" + buffer);
     console.log("After");
     ```
     Output:
-    ```
+    ```js
     Before
     <---f1--->
     After
     ```
 - Asynchrouns function
-    ```
+    ```js
     console.log("Before");
     fs.readFile("./f1.txt", function (err, data) {
         console.log("" + data);
@@ -94,14 +94,14 @@ After cb2:  1721759725148
     console.log("After");
     ```
     Output:
-    ```
+    ```js
     Before
     After
     <---f1--->
     ```
 - Reading 2 files
 
-    ```
+    ```js
     console.log("Before");
     const content1 = fs.readFileSync("./f1.txt");
     const content2 = fs.readFileSync("./f2.txt");
@@ -109,13 +109,13 @@ After cb2:  1721759725148
     console.log("After");
     ```
     Output:
-    ```
+    ```js
     Before
     concated result: <---f1---> & <--- f2 values--->
     After
     ```
 - Not Blocking the main thread and reading 2 files
-    ```
+    ```js
     console.log("Before");
 
     fs.readFile("./f1.txt", function (err, data) {
@@ -129,7 +129,7 @@ After cb2:  1721759725148
     console.log("After");
     ```
     Output:
-    ```
+    ```js
     Before
     After
     <---f1--->
@@ -137,7 +137,7 @@ After cb2:  1721759725148
     ```
 - Not block the main thread and value in smae line( or some operation with the 2 file like compair or concat etc... )
 
-    ```
+    ```js
     console.log("Before");
 
     fs.readFile("./f1.txt", f1cb);
@@ -153,7 +153,7 @@ After cb2:  1721759725148
     console.log("After")
     ```
     Output:
-    ```
+    ```js
     Before
     After
     concated result: <---f1---> & <--- f2 values--->
