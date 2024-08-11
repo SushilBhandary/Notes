@@ -3,7 +3,7 @@
 Callback hell is a phenomenon that happens when multiple callbacks are nested on top of each other. The two common ways of escaping the callback heare are by using promises and async/await.
 
 Example :
-```
+```js
 fs.readFile(".././f1.txt", (err, data) => {
     if (err) {
         console.log("Error is: " + err);
@@ -34,7 +34,7 @@ fs.readFile(".././f1.txt", (err, data) => {
 });
 ```
 
-```
+```js
 const list = [".././f4.txt",".././f3.txt",".././f2.txt",".././f1.txt"];
 
 function recursiveWay(list){
@@ -64,12 +64,12 @@ It has 3 status
 Promise based function do not take a call back function
 
 Example with `readFile`
-```
+```js
 const promise = fs.promises.readFile("./f1.txt");
 ```
 The task has started when fn is called
 
-```
+```js
 promise.then((data) => {
     console.log("My content is: " + data);
 });
@@ -77,7 +77,7 @@ promise.then((data) => {
 `then` is  an event listener over promise.
 Promise gives us a method named `then` which is an event listener over promise and it triggers when the promise is resolved(the task is done).
 
-```
+```js
 promise.catch((err) => {
     console.log("We hit by error: " + err);
 });
@@ -88,7 +88,7 @@ promise.catch((err) => {
 ---
 ### chaining your then and catch
 
-```
+```js
 
 fs.promises.readFile("./f1.txt")
     .then(function (futureValue) {
@@ -102,7 +102,7 @@ fs.promises.readFile("./f1.txt")
 ---
 when your call back code lloks like this 
 
-```
+```js
 fs.readFile(".././f1.txt", (err, data) => {
     if (err) {
         console.log("Error is: " + err);
@@ -135,7 +135,7 @@ fs.readFile(".././f1.txt", (err, data) => {
 let slove it with `Nested then`
 
 
-```
+```js
 fs.promises.readFile("./f1.txt")
     .then(function (data1) {
         console.log("My Content is: " + data1);
@@ -169,7 +169,7 @@ fs.promises.readFile("./f1.txt")
 
 now , with `chaning with then`
 
-```
+```js
 fs.promises.readFile("./f1.txt")
     .then(function (data) {
         console.log("My Content is: " + data);
@@ -190,7 +190,7 @@ fs.promises.readFile("./f1.txt")
 
 ## Create Our own promise.ReadFile()
 
-```
+```js
 function promiseReadFile(filePath) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, (err, data) => {
@@ -203,10 +203,10 @@ function promiseReadFile(filePath) {
     });
 }
 ```
-```
+```js
 const promise = promiseReadFile("./f1.txt");
 ```
-```
+```js
 promise.then((data) => {
     console.log("My content is: " + data);
 }).catch((err) => {
@@ -214,7 +214,7 @@ promise.then((data) => {
 })
 ```
 
-```
+```js
 promiseReadFile("./f1.txt")
     .then(function (data) {
         console.log("My Content is: " + data);
