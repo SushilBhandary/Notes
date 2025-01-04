@@ -97,7 +97,7 @@ cap.petersTeam.myApply(ironMan, ["thor", "loki"]);
 cap.petersTeam.apply(ironMan, ["thor", "loki"]);
 ```
 
-## bind
+## Bind
 
 polyfill of bind method
 
